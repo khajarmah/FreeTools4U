@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>PDF to Word - FreeTools4U</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="is-preload">
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header>
+                <h1>PDF to Word Converter</h1>
+            </header>
+
+            <p>Select a PDF file and convert it to Word (.docx) online.</p>
+
+            <input type="file" id="pdfFile" accept=".pdf">
+            <button id="convertBtn">Convert to Word</button>
+
+            <p id="status"></p>
+            <a id="downloadLink" href="#" style="display:none;" class="button">Download Word File</a>
+
+            <a href="index.html" class="button">Back to Home</a>
+
+        </div>
+    </div>
+</div>
+
+<!-- pdf.js library -->
+<script src="pdf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.3.0/docx.browser.min.js"></script>
+
+<script>
+document.getElementById('convertBtn').addEventListener('click', async () => {
+    const fileInput = document.getElementById('pdfFile');
+    const file = fileInput.files[0];
+    const status = document.getElementById('status');
+    const downloadLink = document.getElementById('downloadLink');
+
+    if (!file) {
+        alert('Please select a PDF file first.');
+        return;
+    }
+
+    status.textContent = 'Converting... Please wait.';
+    downloadLink.style.display = 'none';
+
+    try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+        let fullText = '';
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items.map(item => item.str).join(' ');
+            fullText += pageText + '\n\n';
+        }
+
+        const { Document, Packer, Paragraph, TextRun } = docx;
+        const doc = new Document({
+            sections: [{
+                properties: {},
+                children: [new Paragraph({ children: [new TextRun(fullText)] })],
+            }],
+        });
+
+        const blob = await Packer.toBlob(doc);
+        const url = URL.createObjectURL(blob);
+
+        downloadLink.href = url;
+        downloadLink.style.display = 'inline-block';
+        status.textContent = 'Conversion completed!';
+    } catch (err) {
+        console.error(err);
+        status.textContent = 'Error converting file.';
+    }
+});
+</script>
+
+</body>
+</html>

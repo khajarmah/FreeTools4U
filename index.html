@@ -1,192 +1,89 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>FreeTools4U</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+    <title>FreeTools4U</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body class="is-preload">
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
 
-		<!-- Main -->
-		<div id="main">
-			<div class="inner">
+            <!-- Header -->
+            <header id="header">
+                <a href="index.html" class="logo"><strong>FreeTools4U</strong></a>
+            </header>
 
-				<!-- Header -->
-				<header id="header">
-					<a href="index.html" class="logo"><strong>FreeTools4U</strong></a>
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
-					</ul>
-				</header>
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h1>Welcome to FreeTools4U</h1>
+                        <p>Your online hub for free tools!</p>
+                    </header>
+                </div>
+            </section>
 
-				<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h1>Welcome to FreeTools4U</h1>
-							<p>Free & Simple Online Tools for Everyone</p>
-						</header>
-						<p>Explore our collection of free tools to make your tasks easier, faster, and smarter. Text, file, and AI tools—all in one place.</p>
-					</div>
-					<span class="image object">
-						<img src="images/pic10.jpg" alt="" />
-					</span>
-				</section>
+            <!-- Features Section -->
+            <section id="features">
+                <header class="major">
+                    <h2>Our Tools</h2>
+                </header>
+                <div class="features" id="tools-container">
+                    <!-- Tools will be dynamically inserted here -->
+                </div>
+            </section>
 
-				<!-- Section: Text Tools -->
-				<section>
-					<header class="major">
-						<h2>Text Tools</h2>
-					</header>
-					<div class="features">
-						<article>
-							<span class="icon fa-keyboard"></span>
-							<div class="content">
-								<h3>Word Counter</h3>
-								<p>Count words and characters in your text easily.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon fa-font"></span>
-							<div class="content">
-								<h3>Text Case Converter</h3>
-								<p>Convert text to uppercase, lowercase, or capitalize.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon fa-eraser"></span>
-							<div class="content">
-								<h3>Remove Extra Spaces</h3>
-								<p>Eliminate unnecessary spaces from your text.</p>
-							</div>
-						</article>
-					</div>
-				</section>
+        </div>
+    </div>
+</div>
 
-				<!-- Section: File Tools -->
-				<section>
-					<header class="major">
-						<h2>File Tools</h2>
-					</header>
-					<div class="features">
-						<article>
-							<span class="icon fa-file-pdf"></span>
-							<div class="content">
-								<h3>PDF to Word</h3>
-								<p>Convert PDF files to editable Word documents.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon fa-image"></span>
-							<div class="content">
-								<h3>Image Compressor</h3>
-								<p>Reduce image size without losing quality.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon fa-copy"></span>
-							<div class="content">
-								<h3>Merge PDFs</h3>
-								<p>Combine multiple PDF files into one document.</p>
-							</div>
-						</article>
-					</div>
-				</section>
+<script>
+// JSON containing all tools
+const tools = [
+  {
+    "name": "Text Tools",
+    "description": "Powerful text editing and formatting tools.",
+    "link": "text-tools.html",
+    "icon": "fa-gem"
+  },
+  {
+    "name": "PDF Tools",
+    "description": "Edit and manage PDF files easily.",
+    "link": "pdf-tools.html",
+    "icon": "fa-file-pdf"
+  },
+  {
+    "name": "File Tools",
+    "description": "Manage your files easily and efficiently.",
+    "link": "file-tools.html",
+    "icon": "fa-paper-plane"
+  },
+  {
+    "name": "AI Tools",
+    "description": "Explore AI-powered tools for daily tasks.",
+    "link": "ai-tools.html",
+    "icon": "fa-rocket"
+  }
+];
 
-				<!-- Section: AI Tools -->
-				<section>
-					<header class="major">
-						<h2>AI Tools</h2>
-					</header>
-					<div class="features">
-						<article>
-							<span class="icon fa-robot"></span>
-							<div class="content">
-								<h3>Text Summarizer</h3>
-								<p>Automatically summarize your text into key points.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon fa-lightbulb"></span>
-							<div class="content">
-								<h3>Idea Generator</h3>
-								<p>Generate creative ideas for content or projects.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon fa-heading"></span>
-							<div class="content">
-								<h3>Title Creator</h3>
-								<p>Create catchy titles for your articles and posts.</p>
-							</div>
-						</article>
-					</div>
-				</section>
-
-			</div>
-		</div>
-
-		<!-- Sidebar -->
-		<div id="sidebar">
-			<div class="inner">
-
-				<!-- Search -->
-				<section id="search" class="alt">
-					<form method="post" action="#">
-						<input type="text" name="query" id="query" placeholder="Search" />
-					</form>
-				</section>
-
-				<!-- Menu -->
-				<nav id="menu">
-					<header class="major">
-						<h2>Menu</h2>
-					</header>
-					<ul>
-						<li><a href="index.html">Homepage</a></li>
-						<li><a href="text-tools.html">Text Tools</a></li>
-						<li><a href="file-tools.html">File Tools</a></li>
-						<li><a href="ai-tools.html">AI Tools</a></li>
-					</ul>
-				</nav>
-
-				<!-- Contact Section -->
-				<section>
-					<header class="major">
-						<h2>Get in touch</h2>
-					</header>
-					<p>You can contact us for suggestions, feedback, or support.</p>
-					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">info@freetools4u.com</a></li>
-						<li class="icon solid fa-phone">(000) 000-0000</li>
-						<li class="icon solid fa-home">1234 Somewhere Road<br />City, Country</li>
-					</ul>
-				</section>
-
-				<!-- Footer -->
-				<footer id="footer">
-					<p class="copyright">&copy; FreeTools4U. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-				</footer>
-
-			</div>
-		</div>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+// Render tools dynamically
+const container = document.getElementById('tools-container');
+tools.forEach(tool => {
+  const article = document.createElement('article');
+  article.innerHTML = `
+    <span class="icon ${tool.icon}"></span>
+    <div class="content">
+      <h3>${tool.name}</h3>
+      <p>${tool.description}</p>
+      <a href="${tool.link}" class="button">Go</a>
+    </div>`;
+  container.appendChild(article);
+});
+</script>
 
 </body>
 </html>

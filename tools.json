@@ -16,12 +16,11 @@
     "description": "Explore AI-powered tools for daily tasks.",
     "link": "ai-tools.html",
     "icon": "fa-rocket"
-  }
+  },
   {
     "name": "PDF Tools",
     "description": "Edit and manage PDF files easily.",
     "link": "pdf-tools.html",
     "icon": "fa-file-pdf"
-}
-
+  }
 ]

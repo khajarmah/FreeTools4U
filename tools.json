@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Text Tools",
+    "description": "Powerful text editing and formatting tools.",
+    "link": "text-tools.html",
+    "icon": "fa-gem"
+  },
+  {
+    "name": "File Tools",
+    "description": "Manage your files easily and efficiently.",
+    "link": "file-tools.html",
+    "icon": "fa-paper-plane"
+  },
+  {
+    "name": "AI Tools",
+    "description": "Explore AI-powered tools for daily tasks.",
+    "link": "ai-tools.html",
+    "icon": "fa-rocket"
+  }
+]

@@ -31,8 +31,10 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<!-- pdf.js library -->
+<script src="pdf.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.3.0/docx.browser.min.js"></script>
+
 <script>
 document.getElementById('convertBtn').addEventListener('click', async () => {
     const fileInput = document.getElementById('pdfFile');
@@ -50,18 +52,21 @@ document.getElementById('convertBtn').addEventListener('click', async () => {
 
     try {
         const arrayBuffer = await file.arrayBuffer();
-        const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-        const pages = pdfDoc.getPages();
-        let textContent = '';
-        pages.forEach(page => {
-            textContent += page.getTextContent ? page.getTextContent() : '';
-        });
+        const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+        let fullText = '';
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items.map(item => item.str).join(' ');
+            fullText += pageText + '\n\n';
+        }
 
         const { Document, Packer, Paragraph, TextRun } = docx;
         const doc = new Document({
             sections: [{
                 properties: {},
-                children: [new Paragraph({ children: [new TextRun(textContent)] })],
+                children: [new Paragraph({ children: [new TextRun(fullText)] })],
             }],
         });
 
@@ -77,5 +82,6 @@ document.getElementById('convertBtn').addEventListener('click', async () => {
     }
 });
 </script>
+
 </body>
 </html>

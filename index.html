@@ -5,85 +5,104 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="is-preload">
 
-<div id="wrapper">
-    <div id="main">
-        <div class="inner">
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-            <!-- Header -->
-            <header id="header">
-                <a href="index.html" class="logo"><strong>FreeTools4U</strong></a>
-            </header>
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
 
-            <!-- Banner -->
-            <section id="banner">
-                <div class="content">
-                    <header>
-                        <h1>Welcome to FreeTools4U</h1>
-                        <p>Your online hub for free tools!</p>
-                    </header>
-                </div>
-            </section>
-
-            <!-- Features Section -->
-            <section id="features">
-                <header class="major">
-                    <h2>Our Tools</h2>
+                <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo"><strong>FreeTools4U</strong> - Simple & Free Online Tools</a>
                 </header>
-                <div class="features" id="tools-container">
-                    <!-- Tools will be dynamically inserted here -->
-                </div>
-            </section>
 
+                <!-- Banner -->
+                <section id="banner">
+                    <div class="content">
+                        <header>
+                            <h1>Welcome to FreeTools4U</h1>
+                            <p>All your free tools in one place</p>
+                        </header>
+                        <p>Explore, use, and enjoy a growing collection of tools for text, files, PDFs, AI and more — all for free!</p>
+                    </div>
+                </section>
+
+                <!-- Tools Section -->
+                <section>
+                    <header class="major">
+                        <h2>Available Tools</h2>
+                    </header>
+                    <div class="features" id="tools-container">
+                        <!-- Tools will load here dynamically -->
+                    </div>
+                </section>
+
+            </div>
         </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        <li><a href="index.html">Homepage</a></li>
+                        <li><a href="text-tools.html">Text Tools</a></li>
+                        <li><a href="file-tools.html">File Tools</a></li>
+                        <li><a href="ai-tools.html">AI Tools</a></li>
+                        <li><a href="pdf-tools.html">PDF Tools</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">&copy; FreeTools4U. All rights reserved.</p>
+                </footer>
+
+            </div>
+        </div>
+
     </div>
-</div>
 
-<script>
-// JSON containing all tools
-const tools = [
-  {
-    "name": "Text Tools",
-    "description": "Powerful text editing and formatting tools.",
-    "link": "text-tools.html",
-    "icon": "fa-gem"
-  },
-  {
-    "name": "PDF Tools",
-    "description": "Edit and manage PDF files easily.",
-    "link": "pdf-tools.html",
-    "icon": "fa-file-pdf"
-  },
-  {
-    "name": "File Tools",
-    "description": "Manage your files easily and efficiently.",
-    "link": "file-tools.html",
-    "icon": "fa-paper-plane"
-  },
-  {
-    "name": "AI Tools",
-    "description": "Explore AI-powered tools for daily tasks.",
-    "link": "ai-tools.html",
-    "icon": "fa-rocket"
-  }
-];
+    <!-- Scripts -->
+    <script>
+        async function loadTools() {
+            try {
+                const response = await fetch('tools.json');
+                const tools = await response.json();
+                const container = document.getElementById('tools-container');
+                container.innerHTML = '';
 
-// Render tools dynamically
-const container = document.getElementById('tools-container');
-tools.forEach(tool => {
-  const article = document.createElement('article');
-  article.innerHTML = `
-    <span class="icon ${tool.icon}"></span>
-    <div class="content">
-      <h3>${tool.name}</h3>
-      <p>${tool.description}</p>
-      <a href="${tool.link}" class="button">Go</a>
-    </div>`;
-  container.appendChild(article);
-});
-</script>
+                tools.forEach(tool => {
+                    const article = document.createElement('article');
+                    article.innerHTML = `
+                        <span class="icon solid ${tool.icon}"></span>
+                        <div class="content">
+                            <h3>${tool.name}</h3>
+                            <p>${tool.description}</p>
+                            <a href="${tool.link}" class="button">Go</a>
+                        </div>
+                    `;
+                    container.appendChild(article);
+                });
+
+            } catch (error) {
+                console.error('Error loading tools:', error);
+            }
+        }
+
+        loadTools();
+    </script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>
